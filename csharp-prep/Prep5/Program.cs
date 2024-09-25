@@ -38,4 +38,5 @@ class Program
     {
         Console.WriteLine($"{name}, the square of your number is {square}");
     }
+    
 }
