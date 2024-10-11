@@ -1,65 +1,39 @@
+// Program.cs
 using System;
-
-// class Program
-// {
-//     // static void Main(string[] args)
-//     // {
-//     //     Console.WriteLine("Hello Foundation1 World!");
-//     // }
-//     public class Person
-//     { // The C# convention is to start member variables with an underscore _
-//         public string _givenName = "";
-//         public string _familyName = "";
-//     // A special method, called a contructor that is invoked using the new keyword, CLASS MAME and ()
-//         public Person()
-//         {
-
-//         }
-//         public void ShowEasternName()
-//         {
-//             Console.WriteLine($"{_familyName}, {_givenName}");
-//         }
-//         public void ShowWesternName()
-//         {
-//             Console.WriteLine($"{_givenName}, {_familyName}");
-//         }
-        
-//     }
-// }
+using System.Collections.Generic;
 class Program
 {
-    public class Blind
-    {
-        public double _width ;
-        public double _heigth;
-        public string _color = "";
-
-        public double GetArea()
-        {
-            return _width * _heigth;
-        }
-    }
-    public class House
-    {
-        public string _owner = "";
-        public Blind _kitchen = new Blind();
-        public Blind _livingRoom = new Blind();
-    }
-
     static void Main(string[] args)
     {
-        House isaacsHome = new House();
-        isaacsHome._owner = "Pasapera Family";
-        isaacsHome._kitchen._width = 60;
-        // Blind kitchen = new Blind();
+        List<Video> videos = new List<Video>();
 
-        // kitchen._width = 60;
-        // kitchen._heigth = 48;
-        // kitchen._color = "Black";
+        // Create videos with valid data
+        Video video1 = new Video("Learn C# in 10 Minutes", "John Doe", 600);
+        Video video2 = new Video("Advanced C# Programming", "Jane Smith", 1200);
+        Video video3 = new Video("C# Best Practices", "Emily Johnson", 900);
 
-        // double materialAmount = kitchen.GetArea();
-        // Console.WriteLine($"Width:{kitchen._width}, Height:{kitchen._heigth}, Color:{kitchen._color}");
-        // Console.WriteLine($"Material amount:{materialAmount}");
+        // Add comments to videos
+        video1.AddComment(new Comment("Alice", "Great video!"));
+        video1.AddComment(new Comment("Bob", "Very helpful, thanks!"));
+        video1.AddComment(new Comment("Charlie", "I learned a lot."));
+
+        video2.AddComment(new Comment("Dave", "I love the explanations."));
+        video2.AddComment(new Comment("Eve", "Clear and concise!"));
+        video2.AddComment(new Comment("Frank", "Can't wait for the next one!"));
+
+        video3.AddComment(new Comment("George", "Interesting tips!"));
+        video3.AddComment(new Comment("Helen", "Perfect for beginners!"));
+        video3.AddComment(new Comment("Ivy", "Keep it up!"));
+
+        // Add videos to list
+        videos.Add(video1);
+        videos.Add(video2);
+        videos.Add(video3);
+
+        foreach (Video video in videos)
+        {
+            video.DisplayVideoInfo();
+            Console.WriteLine();
+        }
     }
-
 }
