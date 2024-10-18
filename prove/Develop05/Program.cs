@@ -93,3 +93,19 @@ class Program
         _myListingActivity.StartActivity();
     }
 }
+/*
+    Project Enhancements:
+    ---------------------
+    1. Activity Log:
+       - We implemented a log system that tracks how many times each activity is performed during the session.
+       - The log is displayed to the user when they exit the program, showing the total number of times each activity was completed.
+
+    2. Prompt Management (Reflection Activity):
+       - We added a PromptManager class that ensures no random prompts are repeated until all prompts have been used.
+       - This logic can be reused for any activity that needs to display random prompts without repetition.
+
+    3. Code Reusability:
+       - The logic for handling prompts and questions was refactored into a separate class (PromptManager) to avoid code duplication and promote reusability across multiple activities.
+    
+    These enhancements improve the overall functionality, user experience, and maintainability of the program.
+*/
