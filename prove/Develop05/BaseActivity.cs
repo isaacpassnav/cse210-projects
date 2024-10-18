@@ -3,7 +3,6 @@ public class BaseActivity
     protected string _name;
     protected string _description;
     protected int _duration;
-
     public BaseActivity( string name, string description)
     {
         this._name = name;

@@ -5,6 +5,7 @@ class ReflectionActivity : BaseActivity
 {
     private List<string> _prompts;
     private List<string> _questions;
+    private PromptManager _promptManager;
 
     public ReflectionActivity(string name, string description):base(name,description)
     {
@@ -15,6 +16,9 @@ class ReflectionActivity : BaseActivity
             "Think of a time when you helped someone in need.",
             "Think of a time when you did something truly selfless."
         };
+
+        _promptManager = new PromptManager(_prompts);
+
         this._questions = new List<string>()
         {
             "Why was this experience meaningful to you?",
@@ -31,12 +35,8 @@ class ReflectionActivity : BaseActivity
     public override void StartActivity()
     {
         ShowStartMessage();
-
-        // Console.WriteLine("Get Ready ...!");
-        // PauseWithAnimation(3);
-
-        Random random = new Random();
-        string selectedPrompt  = _prompts[random.Next(_prompts.Count)];
+        
+        string selectedPrompt = _promptManager.GetRandomPrompt(); 
         Console.WriteLine($"\nPrompt: {selectedPrompt}");
         PauseWithAnimation(5);
 
@@ -44,13 +44,12 @@ class ReflectionActivity : BaseActivity
 
         while(timeElapsed < _duration)
         {
-            string selectedQuestion  = _questions[random.Next(_questions.Count)];
+            Random random = new Random();
+            string selectedQuestion = _questions[random.Next(_questions.Count)];
             Console.WriteLine($"\nQuestion: {selectedQuestion}");
             PauseWithAnimation(5);
             timeElapsed += 5;
         }
         ShowEndMessage();
     }
-
-
 }

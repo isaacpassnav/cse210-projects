@@ -2,6 +2,12 @@ using System;
 
 class Program
 {
+    static Dictionary<string, int> _activityLog=new Dictionary<string, int>()
+        {
+            {"Breathing Activity", 0},
+            {"Reflection Activity", 0},
+            {"Listing Activity", 0} 
+        };
     static void Main(string[] args)
     {
         bool _keepRunning = true; 
@@ -21,14 +27,18 @@ class Program
             {
                 case "1":
                     PerformBreathingActivity();
+                    _activityLog["Breathing Activity"]++;
                     break;
                 case "2":
                     PerformReflectionActivity();
+                    _activityLog["Reflection Activity"]++;
                     break;
                 case "3":
                     PerformListingActivity();
+                    _activityLog["Listing Activity"]++;
                     break;
                 case "4":
+                    ShowFinalLog();
                     _keepRunning = false;  
                     Console.WriteLine("Exiting the program. Goodbye!");
                     break;
@@ -38,7 +48,14 @@ class Program
             }
         }
     }
-
+    static void ShowFinalLog()
+    {
+        Console.WriteLine("\n--- Final Activity Log ---");
+        Console.WriteLine($"Breathing Activity: {_activityLog["Breathing Activity"]} times");
+        Console.WriteLine($"Reflection Activity: {_activityLog["Reflection Activity"]} times");
+        Console.WriteLine($"Listing Activity: {_activityLog["Listing Activity"]} times");
+        Console.WriteLine("--------------------------\n");
+    }
     static void PerformBreathingActivity()
     {
         Console.Clear();
@@ -51,7 +68,6 @@ class Program
         _myBreathingActivity.SetDuration(_duration);
         _myBreathingActivity.StartActivity();
     }
-
     static void PerformReflectionActivity()
     {
         Console.Clear();
@@ -64,7 +80,6 @@ class Program
         _myReflectionActivity.SetDuration(_duration);
         _myReflectionActivity.StartActivity();
     }
-
     static void PerformListingActivity()
     {
         Console.Clear();

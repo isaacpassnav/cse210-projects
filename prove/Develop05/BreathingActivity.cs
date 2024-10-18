@@ -27,5 +27,4 @@ public class  BreathingActivity : BaseActivity
         }
         Console.WriteLine();
     }
-
 }
