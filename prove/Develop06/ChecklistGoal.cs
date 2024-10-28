@@ -8,6 +8,8 @@ public class ChecklistGoal : Goal
     {
         this._amountCompleted = 0;
         this._points += _points;
+        this._tarjet = tarjet;
+        this._bonus = bonus;
     }
     public override void RecordEvent()
     {
